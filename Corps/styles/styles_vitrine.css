@@ -1,0 +1,87 @@
+body{
+    background-image: url('../images/imgaeVitrine.png');
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+h1{
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 75px;
+}
+
+p{
+    font-size: 20px;
+    max-width: 280px;
+    margin: 0 auto;
+    margin-bottom: 75px;
+    text-align: justify;
+}
+ 
+.buttons button {
+    background-color: white;
+    color: #ff751f;
+    border: 2px solid #ff751f;
+    border-radius: 5px;
+    margin-bottom: 20px;   /* moins d’espace pour mobile */
+    padding: 10px 20px;
+    width: 90%;             /* s’adapte aux petits écrans */
+    max-width: 250px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #ff751f;
+    color: white;
+}
+
+
+a:visited{
+    color: #ff751f;
+}
+.Empilement{
+    width: 80%;
+    max-width: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 25px 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+
+@media (min-width: 768px) {
+    .Empilement{
+        width: 90%;
+        max-width: 600px;
+        padding: 40px 30px;
+        margin: 120px auto;
+    }
+    .Empilement p {
+        max-width: 400px;    /* augmente la largeur maximale du texte */
+        font-size: 20px;     /* éventuellement plus lisible */
+        line-height: 1.5;    /* meilleure lecture */
+    }
+
+   .buttons {
+        display: flex;          /* place les boutons côte à côte */
+        justify-content: center;  /* centre les boutons horizontalement */
+        gap: 150px;                /* espace entre les boutons */
+        margin-bottom: 20px;      /* espace entre les boutons et CGU */
+    }
+
+    .buttons button {
+        width: 200px;             /* taille fixe sur desktop */
+        margin-bottom: 0;         /* supprime la marge verticale du mobile */
+    }
+ 
+    a {
+        display: block;           /* s’assure que CGU est centré en dessous */
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+

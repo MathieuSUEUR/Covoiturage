@@ -1,0 +1,170 @@
+body {
+background: linear-gradient(to right, #ff3131, #ff914d);
+margin: 0;
+font-family: Arial, sans-serif;
+}
+
+h1 {
+text-align: center;
+margin-top: 25px;
+margin-bottom: 50px;
+}
+
+p {
+font-size: 18px;
+max-width: 280px;
+margin: 0 auto 60px auto;
+text-align: justify;
+}
+
+.Empilement {
+width: 80%;
+max-width: 400px;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 50px auto;
+padding: 25px 15px;
+background-color: white;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+  
+.champ {
+display: flex;
+flex-direction: column; 
+align-items: flex-start;
+margin-bottom: 70px;
+gap: 5px;
+width: 100%;
+}
+
+.champ p {
+margin: 0;
+text-align: left;
+color: black;
+}
+
+.champ input {
+flex: 1;
+width: 100%;
+padding: 10px;
+border: 2px solid #ddd;
+border-radius: 5px;
+font-size: 16px;
+}
+
+.champ input:focus {
+border-color: orange;
+outline: none;
+}
+
+.gestionmdp {
+position: relative;
+width: 100%;
+display: flex;
+align-items: center;
+}
+
+.gestionmdp input {
+flex: 1;
+padding: 10px;
+padding-right: 40px;
+border: 2px solid #ddd;
+border-radius: 5px;
+font-size: 16px;
+}
+
+#imagevue {
+position: absolute;
+right: 10px;
+width: 25px;
+height: 25px;
+cursor: pointer;
+opacity: 0.6;
+top: 50%;
+transform: translateY(-50%);
+}
+
+#imagevue:hover {
+opacity: 1;
+}
+
+.buttons button {
+background-color: white;
+color: #ff751f;
+border: 2px solid #ff751f;
+border-radius: 5px;
+margin-bottom: 20px;
+padding: 10px 20px;
+width: 100%;
+max-width: 250px;
+cursor: pointer;
+}
+
+.buttons button:hover {
+background-color: #ff751f;
+color: white;
+}
+
+a:visited {
+color: #ff751f;
+}
+
+
+@media (min-width: 768px) {
+.Empilement {
+width: 90%;
+max-width: 600px;
+padding: 40px 30px;
+margin: 120px auto;
+}
+
+
+h1 {
+    margin-bottom: 75px;
+}
+
+p {
+    max-width: 400px;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.champ {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 70px;
+}
+
+.champ p {
+    min-width: 120px;
+    text-align: right;
+}
+
+.gestionmdp input {
+    padding-right: 40px;
+    margin-right: 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+    margin-bottom: 20px;
+}
+
+.buttons button {
+    width: 200px;
+    margin-bottom: 0;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="styles_inscription.css">
+</head>
+<body>
+    <main class="main-content">
+        <div class="form-container">
+            <h1>Inscription</h1>
+            
+            <form>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nom">Nom:</label>
+                        <input type="text" id="nom" name="nom">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="prenom">Prénom:</label>
+                        <input type="text" id="prenom" name="prenom">
+                    </div>
+                    <div class="form-group">
+                        <label for="tel">Tél.:</label>
+                        <span>+33</span>
+                        <input type="tel" id="tel" name="tel">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Civilité:</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="femme" name="civilite" value="femme">
+                                <label for="femme">Femme</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="homme" name="civilite" value="homme">
+                                <label for="homme">Homme</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mot de passe:</label>
+                        <div class="password-group">
+                            <input type="password" id="password" name="password" class="password-input">
+                            <button type="button" class="eye-icon">👁</button>
+                            <button type="button" class="help-icon">❓</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">Date de naissance:</label>
+                        <input type="text" id="date" name="date" placeholder="../../../....">
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">S'inscrire</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
