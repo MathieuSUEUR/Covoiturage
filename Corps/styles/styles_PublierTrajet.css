@@ -1,152 +1,342 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --couleur-primaire: #ff8c00;
+    --couleur-secondaire: #ffffff;
+    --couleur-texte-sombre: #333;
+    --couleur-fond-page: #f0f0f0;
 }
 
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: var(--couleur-fond-page);
+    color: var(--couleur-texte-sombre);
 }
 
-/* Header */
-.header {
-    background: linear-gradient(to right, rgb(228, 227, 227), rgb(213, 212, 212));
-    padding: 15px 30px;
+/* ---------------------------------- */
+/* BARRE DE NAVIGATION (SIMILAIRE À PAGE 5) */
+/* ---------------------------------- */
+.barre-navigation {
+    /* ... (CSS de la barre de navigation de Page 5) ... */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    background-color: var(--couleur-secondaire);
+    padding: 10px 5%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.bouton-publier.actif {
+    background-color: var(--couleur-primaire);
+    color: var(--couleur-secondaire);
+    border-color: var(--couleur-primaire);
+}
+.bouton-publier.actif .icone-plus {
+    color: var(--couleur-secondaire);
+}
+/* Ajoutez le reste du CSS de la barre de navigation de la page 5 */
+.nav-gauche, .nav-droite { display: flex; align-items: center; gap: 10px; }
+.logo-navigation-placeholder { width: 30px; height: 30px; background-color: lightgreen; border-radius: 50%; }
+.utilisateur-nom { font-weight: bold; }
+.bouton-recherche { padding: 8px 15px; border: 1px solid #ccc; border-radius: 20px; background-color: #fff; cursor: pointer; display: flex; align-items: center; gap: 5px; font-size: 1em; }
+.bouton-publier { display: flex; align-items: center; gap: 5px; padding: 8px 15px; border: 1px solid var(--couleur-primaire); border-radius: 20px; background-color: #fff; color: var(--couleur-primaire); text-decoration: none; font-weight: bold; }
+.profil-avatar-placeholder { width: 40px; height: 40px; background-color: #ccc; border-radius: 50%; }
+
+
+/* ---------------------------------- */
+/* CONTENU PRINCIPAL */
+/* ---------------------------------- */
+
+.contenu-principal {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    position: relative;
 }
 
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.logo {
-    width: 50px;
-    height: 50px;
-    background-color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.site-name {
+.titre-page {
+    font-size: 1.8em;
     font-weight: bold;
-    font-size: 18px;
+    margin-bottom: 20px;
 }
 
-.header-center {
-    flex: 1;
-    max-width: 400px;
+.sous-titre {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
-.search-box {
-    background-color: white;
-    border-radius: 25px;
-    padding: 10px 20px;
+.conteneur-publication {
+    display: flex;
+    gap: 30px;
+}
+
+/* BLOC CARTE (Section Localisation) */
+.section-localisation {
+    flex: 2;
+    background-color: var(--couleur-secondaire);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.boutons-carte {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-bottom: 15px;
 }
 
-.search-icon {
-    color: #ff8844;
-    font-size: 18px;
-}
-
-.search-box input {
-    border: none;
-    outline: none;
-    flex: 1;
-    font-size: 14px;
-    color: black;
-}
-
-.search-box input::placeholder {
-    color: black;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.publish-btn {
-    background-color: white;
-    border: none;
-    border-radius: 25px;
-    padding: 10px 25px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.bouton-carte {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 5px;
     cursor: pointer;
-    font-weight: bold;
-    color: #ff8844;
-    font-size: 14px;
 }
 
-.plus-icon {
-    font-size: 18px;
+.bouton-carte.actif {
+    background-color: var(--couleur-primaire);
+    color: var(--couleur-secondaire);
+    border-color: var(--couleur-primaire);
 }
 
-.user-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: white;
-}
-
-.user-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Footer */
-.footer {
-    background-color: #3d3d3d;
-    padding: 20px 40px;
+.champ-recherche-carte {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    flex-grow: 1;
+}
+
+.champ-recherche-carte input {
+    border: none;
+    flex-grow: 1;
+    padding: 5px;
+}
+
+.champ-recherche-carte .icone-recherche {
+    margin-right: 5px;
+    color: #666;
+}
+
+.carte-placeholder {
+    background-color: #eee;
+    height: 400px;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    color: #666;
+}
+
+/* BLOC FORMULAIRE (Section Infos Trajet) */
+.section-infos-trajet {
+    flex: 1;
+    min-width: 300px;
+    padding-top: 5px; /* Aligner avec la carte */
+}
+
+.formulaire-trajet {
+    background-color: var(--couleur-secondaire);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.groupe-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.groupe-input label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.groupe-input input,
+.groupe-input select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.groupe-horaires {
+    display: flex;
+    gap: 15px;
+}
+
+.groupe-horaires .groupe-input {
+    flex: 1;
+}
+
+.groupe-prix-passagers {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end; /* Pour aligner les labels */
+}
+
+.groupe-prix-passagers .prix {
+    flex: 1;
+}
+
+.groupe-prix-passagers .passagers {
+    flex: 1;
+}
+
+.champ-avec-symbole {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0;
+}
+
+.champ-avec-symbole span {
+    padding: 0 10px;
+    background-color: #eee;
+    border-radius: 5px 0 0 5px;
+    font-weight: bold;
+    height: 100%;
+    display: flex;
     align-items: center;
 }
 
-.footer a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
+.champ-avec-symbole input {
+    border: none;
+    border-radius: 0 5px 5px 0;
+    flex-grow: 1;
 }
 
-.footer a:hover {
+.groupe-cgu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+.groupe-cgu input[type="checkbox"] {
+    transform: scale(1.2);
+}
+
+.lien-cgu {
+    color: var(--couleur-primaire);
     text-decoration: underline;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .header {
+.bouton-publier-form {
+    padding: 12px 20px;
+    border: none;
+    background-color: var(--couleur-primaire);
+    color: var(--couleur-secondaire);
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+
+/* ---------------------------------- */
+/* ILLUSTRATIONS DÉCORATIVES */
+/* ---------------------------------- */
+.illustration-carte-gauche,
+.illustration-detective-droit,
+.illustration-validation-bas {
+    position: absolute;
+    opacity: 0.2;
+    background-color: var(--couleur-primaire);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Carte (à gauche) */
+.illustration-carte-gauche {
+    width: 250px;
+    height: 300px;
+    top: 100px;
+    left: -100px;
+    background: transparent;
+    border: 5px solid var(--couleur-primaire);
+    border-radius: 15px;
+    transform: rotate(-15deg);
+}
+
+/* Détective (à droite) */
+.illustration-detective-droit {
+    width: 300px;
+    height: 400px;
+    top: 350px;
+    right: -100px;
+    border-radius: 50% 50% 0 0;
+}
+
+/* Validation (en bas à gauche) */
+.illustration-validation-bas {
+    width: 150px;
+    height: 150px;
+    bottom: -150px;
+    left: 50px;
+    border: 5px solid var(--couleur-primaire);
+    border-radius: 50%;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+}
+
+/* Masquer les illustrations sur mobile */
+@media (max-width: 900px) {
+    .illustration-carte-gauche,
+    .illustration-detective-droit,
+    .illustration-validation-bas {
+        display: none;
+    }
+}
+
+/* ---------------------------------- */
+/* RESPONSIVITÉ */
+/* ---------------------------------- */
+
+@media (min-width: 900px) {
+    .conteneur-publication {
+        flex-direction: row;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 899px) {
+    .conteneur-publication {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .section-localisation, .section-infos-trajet {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .boutons-carte {
         flex-wrap: wrap;
     }
-
-    .header-center {
-        order: 3;
-        flex-basis: 100%;
-        max-width: 100%;
+    .bouton-carte {
+        flex-grow: 1;
+    }
+    .champ-recherche-carte {
+        width: 100%;
         margin-top: 10px;
+    }
+    .groupe-horaires, .groupe-prix-passagers {
+        flex-direction: column;
+        gap: 15px;
     }
 }

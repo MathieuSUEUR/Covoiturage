@@ -1,152 +1,368 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --couleur-primaire: #ff8c00;
+    --couleur-secondaire: #ffffff;
+    --couleur-texte-sombre: #333;
+    --couleur-fond-page: #f0f0f0;
+    --couleur-footer: #444; /* Gris foncé pour le footer */
+    --hauteur-bloc-presentation: 150px; /* Nouvelle variable pour uniformiser les grands blocs */
 }
 
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: var(--couleur-fond-page);
+    color: var(--couleur-texte-sombre);
 }
 
-/* Header */
-.header {
-    background: linear-gradient(to right, rgb(228, 227, 227), rgb(213, 212, 212));
-    padding: 15px 30px;
+
+/* HEADER */
+
+
+.barre-navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    background-color: var(--couleur-secondaire);
+    padding: 10px 5%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
 }
 
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.logo {
-    width: 50px;
-    height: 50px;
-    background-color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.site-name {
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.header-center {
-    flex: 1;
-    max-width: 400px;
-}
-
-.search-box {
-    background-color: white;
-    border-radius: 25px;
-    padding: 10px 20px;
+.nav-gauche, .nav-droite {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.search-icon {
-    color: #ff8844;
-    font-size: 18px;
-}
-
-.search-box input {
-    border: none;
-    outline: none;
-    flex: 1;
-    font-size: 14px;
-    color: black;
-}
-
-.search-box input::placeholder {
-    color: black;
-}
-
-.header-right {
+.nav-centre {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 250px; 
+    flex-grow: 1; 
+    justify-content: center;
 }
 
-.publish-btn {
-    background-color: white;
-    border: none;
-    border-radius: 25px;
-    padding: 10px 25px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    color: #ff8844;
-    font-size: 14px;
-}
-
-.plus-icon {
-    font-size: 18px;
-}
-
-.user-avatar {
-    width: 50px;
-    height: 50px;
+.logo-navigation-placeholder {
+    width: 30px;
+    height: 30px;
+    background-color: lightgreen;
     border-radius: 50%;
-    overflow: hidden;
-    background-color: white;
 }
 
-.user-avatar img {
+.utilisateur-nom {
+    font-weight: bold;
+}
+
+
+.bouton-nav {
+    padding: 8px 15px;
+    border: 2px solid var(--couleur-primaire);
+    border-radius: 20px;
+    background-color: var(--couleur-secondaire);
+    color: var(--couleur-primaire);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    width: 130px; 
+    box-sizing: border-box;
+}
+
+.bouton-nav:hover{
+    background-color: var(--couleur-primaire);
+    color: var(--couleur-secondaire);
+}
+
+.profil-avatar-placeholder {
+    width: 40px;
+    height: 40px;
+    background-color: #d1d1d1;
+    border-radius: 50%;
+    background: url('placeholder_avatar.jpg') center / cover no-repeat; 
+    cursor: pointer;
+    border: 1px solid #999; 
+}
+
+.contenu-principal {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+}
+
+
+.titre-section {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--couleur-texte-sombre);
+    margin-bottom: 15px;
+}
+
+
+.presentation {
+    margin-top: 70px;
+    margin-bottom: 50px;
+    background-color: #ccc;
+    height: var(--hauteur-bloc-presentation); 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border-radius: 5px;
+    padding: 10px 30px 10px;
+    text-align: justify;
+}
+
+.lien-sites-upjv {
+    margin: 0 auto;
+    display: block;
+    height: var(--hauteur-bloc-presentation); 
+    border-radius: 5px;
+    overflow: hidden; 
+    text-decoration: none;
+    margin-bottom: 50px;
+}
+
+.image-site-upjv {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    border: none;
+    display: block;
 }
 
-/* Footer */
-.footer {
-    background-color: #3d3d3d;
-    padding: 20px 40px;
+/* Section 3: Prochain Trajet */
+.section-prochain-trajet {
+    /* MODIF: Centrer le contenu de cette section */
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.carte-trajet-reserve {
+    background-color: var(--couleur-secondaire);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px; 
+    width: 100%; /* S'assurer qu'elle est bien responsive */
+    box-sizing: border-box;
+}
+
+.trajet-entete {
+    display: flex;
     align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
 }
 
-.footer a {
-    color: white;
+.profil-mini-placeholder {
+    width: 50px;
+    height: 50px;
+    background-color: #aaa;
+    border-radius: 50%;
+}
+
+.trajet-villes {
+    font-weight: bold;
+    font-size: 1.2em;
+    flex-grow: 1;
+}
+
+.trajet-villes .fleche {
+    color: var(--couleur-primaire);
+}
+
+.icone-message-placeholder {
+    font-size: 1.5em;
+    color: #666;
+}
+
+.trajet-details {
+    display: grid;
+    grid-template-areas:
+        "nom horaire"
+        "infos-bas infos-bas";
+    gap: 5px;
+}
+
+.detail-nom {
+    grid-area: nom;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.detail-horaire {
+    grid-area: horaire;
+    text-align: right;
+    font-weight: bold;
+    margin: 0;
+}
+
+.detail-infos-bas {
+    grid-area: infos-bas;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.info-place, .info-voiture {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.info-prix {
+    font-weight: bold;
+    color: green;
+    font-size: 1.1em;
+}
+
+.bouton-annuler {
+    padding: 5px 10px;
+    border: none;
+    background-color: #e74c3c;
+    color: var(--couleur-secondaire);
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    flex-grow: 1; 
+    min-width: 150px;
+}
+
+/* Section 4: Communication */
+.section-communication {
+    text-align: center;
+}
+
+.bouton-messagerie {
+    display: inline-block;
+    padding: 10px 30px;
+    border: 2px solid var(--couleur-primaire);
+    border-radius: 25px;
+    color: var(--couleur-primaire);
     text-decoration: none;
-    font-size: 14px;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-top: 10px;
 }
 
-.footer a:hover {
-    text-decoration: underline;
+/* ---------------------------------- */
+/* ILLUSTRATIONS DÉCORATIVES */
+/* ---------------------------------- */
+
+.illustration-voiture-gauche,
+.illustration-volant-droit,
+.illustration-fleches-gauche {
+    position: absolute;
+    opacity: 0.2;
+    background-color: var(--couleur-primaire);
+    z-index: 0;
+    pointer-events: none;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .header {
-        flex-wrap: wrap;
+/* ... (Styles des illustrations inchangés) ... */
+
+/* ---------------------------------- */
+/* FOOTER (NOUVEAU) */
+/* ---------------------------------- */
+
+.pied-de-page {
+    background-color: var(--couleur-footer);
+    color: var(--couleur-secondaire);
+    padding: 20px 5%;
+    margin-top: 75px; 
+}
+
+.conteneur-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.image-reseau {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 50%; 
+}
+
+.placeholder-reseau {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden; 
+}
+
+.texte-contact {
+    text-decoration: none;
+    color: var(--couleur-secondaire);
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-left: 170px;
+    transition: color 0.2s ease; /* Ajout d'une transition pour un survol fluide */
+}
+
+.texte-contact:hover{
+    color: var(--couleur-secondaire);
+}
+.texte-contact:visited{
+    color: var(--couleur-secondaire);
+}
+
+/* ---------------------------------- */
+/* RESPONSIVITÉ */
+/* ---------------------------------- */
+
+@media (max-width: 768px) {
+    /* ... (Styles de responsivité pour les illustrations et le contenu inchangés) ... */
+    .illustration-voiture-gauche,
+    .illustration-volant-droit,
+    .illustration-fleches-gauche {
+        display: none;
+    }
+    .contenu-principal {
+        margin: 15px auto;
+        padding: 0 5%;
+        gap: 20px;
+    }
+    .barre-navigation {
+        padding: 10px 15px;
+    }
+    
+    /* Responsive Navigation */
+    .nav-centre {
+        gap: 5px;
+    }
+    .bouton-nav {
+        width: 40px;
+        padding: 8px 8px;
+        font-size: 0;
+    }
+    .bouton-nav .icone-nav {
+        font-size: 1.2em;
     }
 
-    .header-center {
-        order: 3;
-        flex-basis: 100%;
-        max-width: 100%;
-        margin-top: 10px;
+    /* Responsive Footer */
+    .conteneur-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    .texte-contact {
+        margin-left: 0;
     }
 }

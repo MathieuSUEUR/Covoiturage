@@ -1,0 +1,152 @@
+:root {
+    --couleur-primaire: #ff8c00;
+    --couleur-secondaire: #ffffff;
+    --couleur-texte-sombre: #333;
+    --arriere-plan-degrade: linear-gradient(to right, #ff4e50, #f9d423);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--arriere-plan-degrade);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.contenant-inscription {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0; /* Ajouter un padding vertical pour le mobile */
+}
+
+.formulaire-panneau {
+    background-color: var(--couleur-secondaire);
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 450px; /* Plus large que la connexion pour plus de champs */
+    width: 90%;
+    box-sizing: border-box;
+}
+
+.titre-inscription {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: var(--couleur-texte-sombre);
+}
+
+.formulaire {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Écart légèrement réduit pour plus de champs */
+    text-align: left;
+}
+
+.groupe-champ {
+    display: flex;
+    flex-direction: column;
+}
+
+.groupe-champ label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}
+
+.groupe-champ input:not([type="radio"]) {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* ---------------------------------- */
+/* CHAMPS SPÉCIAUX */
+/* ---------------------------------- */
+
+/* Champ Téléphone */
+.champ-telephone {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0;
+}
+
+.champ-telephone .prefixe {
+    padding: 10px;
+    background-color: #eee;
+    border-right: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    font-weight: bold;
+}
+
+.champ-telephone input {
+    border: none;
+    flex-grow: 1;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Champ Mot de passe */
+.champ-mot-de-passe {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.icone-oeil-placeholder,
+.icone-aide-placeholder {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #666;
+    font-size: 1.2em;
+}
+
+.icone-aide-placeholder {
+    right: 35px; /* Déplacer l'icône d'aide */
+}
+
+/* Groupe Radio (Civilité) */
+.groupe-radio {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-size: 1em;
+}
+
+.groupe-radio input[type="radio"] {
+    margin-right: 5px;
+    transform: scale(1.2); /* Rendre les boutons radio plus visibles */
+}
+
+.groupe-radio label {
+    font-weight: normal;
+}
+
+/* Bouton S'inscrire */
+.bouton-soumettre {
+    margin-top: 25px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--couleur-primaire);
+    color: var(--couleur-secondaire);
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.bouton-soumettre:hover {
+    background-color: #e67e22; /* Ombre orange plus foncée */
+}

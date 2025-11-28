@@ -3,42 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nous contacter</title>
-    <link rel="stylesheet" href="styles_Menu.css">
+    <title>Menu Principal</title>
+    <link rel="stylesheet" href="../styles/styles_Menu.css">
 </head>
 <body>
-    <header class="header">
-        <div class="header-left">
-            <div class="logo">
-                <img src="logo.png" alt="Logo">
-            </div>
-            <span class="site-name">nom</span>
+    <!--HEADER-->
+    <header class="barre-navigation">
+        <div class="nav-gauche">
+            <div class="logo-navigation-placeholder"></div>
+            <span class="utilisateur-nom">nom</span>
         </div>
         
-        <div class="header-center">
-            <div class="search-box">
-                <span class="search-icon">🔍</span>
-                <input type="text" placeholder="Rechercher">
-            </div>
-        </div>
-        
-        <div class="header-right">
-            <button class="publish-btn">
-                <span class="plus-icon">⊕</span>
-                Publier
+        <div class="nav-centre">
+            <button class="bouton-nav bouton-recherche">
+                <span class="icone-nav">🔍</span> Rechercher
             </button>
-            <div class="user-avatar">
-                <img src="avatar.png" alt="Avatar">
-            </div>
+            
+            <button class="bouton-nav bouton-publier">
+                <span class="icone-nav">+</span> Publier
+            </button>
+        </div>
+        
+        <div class="nav-droite">
+            <div class="profil-avatar-placeholder"></div>
         </div>
     </header>
 
-    <footer class="footer">
-        <div class="footer-left">
-            <a href="#">Réseaux(logo)</a>
-        </div>
-        <div class="footer-right">
-            <a href="#">Contact</a>
+    <!--PAGE-->
+    <main class="contenu-principal">
+        <section class="section-presentation">
+            <div class="presentation">
+                Bienvenue sur notre plateforme de covoiturage pour les sites de l'UPJV à Amiens, la solution simple, économique et écologique pour vos déplacements du quotidien. Que vous soyez conducteur ou passager, 
+                trouvez en quelques clics un trajet adapté à vos besoins et voyagez en toute confiance grâce à une communauté engagée et solidaire. 
+                Ensemble, partageons nos routes et réduisons notre impact sur l’environnement.
+            </div>
+        </section>
+
+        <section class="section-sites">
+            <h2 class="titre-section">Les sites UPJV ></h2>
+            <div class=" lessitesupjv">
+                <a href="SitesUPJV.html" class="lien-sites-upjv">
+                 <img src="../images/lessitesupjv.png" alt="les sites upjv" class="image-site-upjv">
+                </a>
+            </div>
+        </section>
+        
+        <section class="section-prochain-trajet">
+            <h2 class="titre-section">Prochain trajet:</h2>
+            <div class="carte-trajet-reserve">
+                <div class="trajet-entete">
+                    <div class="profil-mini-placeholder"></div>
+                    <div class="trajet-villes">
+                        <span class="ville-depart">PDD</span> 
+                        <span class="fleche">➞</span> 
+                        <span class="ville-arrivee">PDA</span>
+                    </div>
+                    <div class="icone-message-placeholder">💬</div>
+                </div>
+                <div class="trajet-details">
+                    <p class="detail-nom">nom</p>
+                    <p class="detail-horaire">Horaire</p>
+                    <div class="detail-infos-bas">
+                        <span class="info-place">
+                            <span class="icone-personne">👤</span> 1/4
+                        </span>
+                        <span class="info-voiture">car</span>
+                        <span class="info-prix">12€</span>
+                        <button class="bouton-annuler">Annuler ma réservation!</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-communication">
+            <h2 class="titre-section">Pour communiquer avec les utilisateurs</h2>
+            <a href="#" class="bouton-messagerie">Messagerie</a>
+        </section>
+
+        <div class="illustration-voiture-gauche"></div>
+        <div class="illustration-volant-droit"></div>
+        <div class="illustration-fleches-gauche"></div>
+
+    </main>
+    
+    <!--FOOTER-->
+    <footer class="pied-de-page">
+        <div class="conteneur-footer">
+            <div class="placeholder-reseau">
+                <img src="../images/twitter.jpg" alt="Twitter" class="image-reseau">
+            </div>
+            <div class="placeholder-reseau">
+                <img src="../images/instagram.png" alt="Instagram" class="image-reseau">
+            </div>
+            <a href="../html/NousContacter.html" class="texte-contact">Contact</a>
         </div>
     </footer>
 </body>

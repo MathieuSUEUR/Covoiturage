@@ -3,43 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nous contacter</title>
-    <link rel="stylesheet" href="styles_PublierTrajet.css">
+    <title>Publier un trajet</title>
+    <link rel="stylesheet" href="../styles/styles_PublierTrajet.css">
 </head>
 <body>
-    <header class="header">
-        <div class="header-left">
-            <div class="logo">
-                <img src="logo.png" alt="Logo">
-            </div>
-            <span class="site-name">nom</span>
+    <header class="barre-navigation">
+        <div class="nav-gauche">
+            <div class="logo-navigation-placeholder"></div>
+            <span class="utilisateur-nom">nom</span>
         </div>
-        
-        <div class="header-center">
-            <div class="search-box">
-                <span class="search-icon">🔍</span>
-                <input type="text" placeholder="Rechercher">
-            </div>
+        <div class="nav-centre">
+            <a href="#" class="bouton-recherche">
+                <span class="icone-recherche">🔍</span> Rechercher
+            </a>
         </div>
-        
-        <div class="header-right">
-            <button class="publish-btn">
-                <span class="plus-icon">⊕</span>
-                Publier
+        <div class="nav-droite">
+            <button class="bouton-publier actif">
+                <span class="icone-plus">+</span> Publier un trajet
             </button>
-            <div class="user-avatar">
-                <img src="avatar.png" alt="Avatar">
-            </div>
+            <div class="profil-avatar-placeholder"></div>
         </div>
     </header>
 
-    <footer class="footer">
-        <div class="footer-left">
-            <a href="#">Réseaux(logo)</a>
+    <main class="contenu-principal">
+        <h1 class="titre-page">Publier un trajet</h1>
+        
+        <div class="conteneur-publication">
+            <section class="section-localisation">
+                <h2 class="sous-titre">Choisissez un point de départ et d'arrivée :</h2>
+                
+                <div class="boutons-carte">
+                    <button class="bouton-carte actif">Départ</button>
+                    <button class="bouton-carte">Arrivée</button>
+                    <div class="champ-recherche-carte">
+                        <span class="icone-recherche">🔍</span>
+                        <input type="text" placeholder="Rechercher une adresse">
+                    </div>
+                </div>
+
+                <div class="carte-placeholder">
+                    <p>Carte interactive (Amiens et environs)</p>
+                </div>
+            </section>
+
+            <section class="section-infos-trajet">
+                <h2 class="sous-titre">Information du trajet:</h2>
+                <form class="formulaire-trajet">
+                    <div class="groupe-input">
+                        <label for="depart">Départ:</label>
+                        <input type="text" id="depart" placeholder="Rechercher une adresse">
+                    </div>
+                    
+                    <div class="groupe-input">
+                        <label for="arrivee">Arrivée:</label>
+                        <input type="text" id="arrivee" placeholder="Rechercher une adresse">
+                    </div>
+
+                    <div class="groupe-horaires">
+                        <div class="groupe-input">
+                            <label for="horaire-depart">Horaire:</label>
+                            <input type="text" id="horaire-depart" placeholder="HH:MM">
+                        </div>
+                        <div class="groupe-input">
+                            <label for="horaire-arrivee">Horaire:</label>
+                            <input type="text" id="horaire-arrivee" placeholder="HH:MM">
+                        </div>
+                    </div>
+                    
+                    <div class="groupe-prix-passagers">
+                        <div class="groupe-input prix">
+                            <label for="prix">Prix:</label>
+                            <div class="champ-avec-symbole">
+                                <span>€</span>
+                                <input type="number" id="prix" placeholder="...">
+                            </div>
+                        </div>
+                        
+                        <div class="groupe-input passagers">
+                            <label for="passagers">passagers max:</label>
+                            <select id="passagers">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="groupe-cgu">
+                        <input type="checkbox" id="cgu" required>
+                        <label for="cgu">J'accepte les <a href="#" class="lien-cgu">CGU</a></label>
+                    </div>
+
+                    <button type="submit" class="bouton-publier-form">Publier</button>
+                </form>
+            </section>
         </div>
-        <div class="footer-right">
-            <a href="#">Contact</a>
-        </div>
-    </footer>
+
+        <div class="illustration-carte-gauche"></div>
+        <div class="illustration-detective-droit"></div>
+        <div class="illustration-validation-bas"></div>
+
+    </main>
 </body>
 </html>

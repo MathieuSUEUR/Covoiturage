@@ -1,307 +1,132 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --couleur-primaire: #ff8c00;
+    --couleur-secondaire: #ffffff;
+    --couleur-texte-sombre: #333;
+    --arriere-plan-degrade: linear-gradient(to right, #ff4e50, #f9d423); /* Dégradé rouge/orange/jaune */
 }
 
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: var(--arriere-plan-degrade);
+    color: var(--couleur-texte-sombre);
 }
 
-/* Header */
-.header {
-    background: linear-gradient(to right, #ff9999, #ffaa88);
-    padding: 15px 30px;
+/* ---------------------------------- */
+/* BARRE DE NAVIGATION (REPRISE) */
+/* ---------------------------------- */
+.barre-navigation {
+    /* ... (CSS de la barre de navigation de Page 4/5) ... */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    background-color: var(--couleur-secondaire);
+    padding: 10px 5%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
+.nav-gauche, .nav-droite { display: flex; align-items: center; gap: 10px; }
+.logo-navigation-placeholder { width: 30px; height: 30px; background-color: lightgreen; border-radius: 50%; }
+.utilisateur-nom { font-weight: bold; }
+.bouton-recherche { padding: 8px 15px; border: 1px solid #ccc; border-radius: 20px; background-color: #fff; cursor: pointer; display: flex; align-items: center; gap: 5px; font-size: 1em; }
+.bouton-publier { display: flex; align-items: center; gap: 5px; padding: 8px 15px; border: 1px solid var(--couleur-primaire); border-radius: 20px; background-color: #fff; color: var(--couleur-primaire); text-decoration: none; font-weight: bold; }
+.profil-avatar-placeholder { width: 40px; height: 40px; background-color: #ccc; border-radius: 50%; }
 
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
+/* ---------------------------------- */
+/* CONTENU PRINCIPAL & FORMULAIRE */
+/* ---------------------------------- */
 
-.logo {
-    width: 50px;
-    height: 50px;
-    background-color: white;
-    border-radius: 50%;
+.contenant-contact {
     display: flex;
-    align-items: center;
     justify-content: center;
-    overflow: hidden;
-}
-
-.logo img {
+    align-items: center;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    min-height: calc(100vh - 60px); /* 60px est une estimation de la hauteur de la barre de navigation */
+    padding: 20px 0;
 }
 
-.site-name {
+.panneau-central {
+    background-color: var(--couleur-secondaire);
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    box-sizing: border-box;
+}
+
+.titre-contact {
+    font-size: 2em;
     font-weight: bold;
-    font-size: 18px;
+    margin-bottom: 30px;
+    color: var(--couleur-texte-sombre);
 }
 
-.header-center {
-    flex: 1;
-    max-width: 400px;
-}
-
-.search-box {
-    background-color: white;
-    border-radius: 25px;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.search-icon {
-    color: #ff8844;
-    font-size: 18px;
-}
-
-.search-box input {
-    border: none;
-    outline: none;
-    flex: 1;
-    font-size: 14px;
-    color: black;
-}
-
-.search-box input::placeholder {
-    color: black;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.publish-btn {
-    background-color: white;
-    border: none;
-    border-radius: 25px;
-    padding: 10px 25px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    color: #ff8844;
-    font-size: 14px;
-}
-
-.plus-icon {
-    font-size: 18px;
-}
-
-.user-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: white;
-}
-
-.user-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Main Content */
-.main-content {
-    flex: 1;
-    background: linear-gradient(to right, #ff3131, #ff914d);
+.formulaire-contact {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
+    gap: 20px;
+    text-align: left;
 }
 
-h1 {
-    font-size: 36px;
-    margin-bottom: 30px;
-}
-
-.form-container {
-    background-color: white;
-    border-radius: 20px;
-    padding: 50px 80px;
-    max-width: 900px;
-    width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
-}
-
-.form-group {
-    margin-bottom: 25px;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-input[type="email"],
-input[type="text"] {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    background-color: #d9d9d9;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-textarea {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    background-color: #d9d9d9;
-    border-radius: 5px;
-    font-size: 14px;
-    resize: vertical;
-    font-family: Arial, sans-serif;
-}
-
-.submit-btn {
-    display: block;
-    margin: 30px auto 0;
-    padding: 12px 60px;
-    background-color: white;
-    border: 2px solid #ff8844;
-    color: #ff8844;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.submit-btn:hover {
-    background-color: #ff8844;
-    color: white;
-}
-
-/* Footer */
-.footer {
-    background-color: #3d3d3d;
-    padding: 20px 40px;
+.groupe-champ {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
 }
 
-.footer a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
+.groupe-champ label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1.1em;
 }
 
-.footer a:hover {
-    text-decoration: underline;
+.groupe-champ input[type="email"],
+.groupe-champ input[type="text"],
+.groupe-champ textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .header {
-        flex-wrap: wrap;
-    }
-
-    .header-center {
-        order: 3;
-        flex-basis: 100%;
-        max-width: 100%;
-        margin-top: 10px;
-    }
+.groupe-champ textarea {
+    resize: vertical;
 }
 
-@media (max-width: 768px) {
-    .header {
-        padding: 15px 20px;
-    }
+.bouton-envoyer {
+    margin-top: 10px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--couleur-primaire);
+    color: var(--couleur-secondaire);
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    width: 100%; /* Le bouton s'étend sur toute la largeur */
+}
 
-    .site-name {
-        font-size: 16px;
-    }
+.bouton-envoyer:hover {
+    background-color: #e67e22;
+}
 
-    .logo,
-    .user-avatar {
-        width: 40px;
-        height: 40px;
-    }
+/* ---------------------------------- */
+/* RESPONSIVITÉ */
+/* ---------------------------------- */
 
-    .publish-btn {
-        padding: 8px 20px;
-        font-size: 12px;
+@media (max-width: 600px) {
+    .panneau-central {
+        padding: 30px 15px;
     }
-
-    h1 {
-        font-size: 28px;
+    .titre-contact {
+        font-size: 1.5em;
         margin-bottom: 20px;
-    }
-
-    .form-container {
-        padding: 30px 20px;
-    }
-
-    .footer {
-        padding: 15px 20px;
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .header-left {
-        gap: 10px;
-    }
-
-    .site-name {
-        font-size: 14px;
-    }
-
-    .logo,
-    .user-avatar {
-        width: 35px;
-        height: 35px;
-    }
-
-    .publish-btn {
-        padding: 8px 15px;
-        font-size: 11px;
-    }
-
-    .plus-icon {
-        font-size: 16px;
-    }
-
-    h1 {
-        font-size: 24px;
-        margin-bottom: 15px;
-    }
-
-    .form-container {
-        padding: 20px 15px;
-        border-radius: 15px;
-    }
-
-    .submit-btn {
-        width: 100%;
-        padding: 12px 20px;
-    }
-
-    textarea {
-        rows: 8;
     }
 }
