@@ -1,10 +1,3 @@
-:root {
-    --couleur-primaire: #ff8c00;
-    --couleur-secondaire: #ffffff;
-    --couleur-texte-sombre: #333;
-    --couleur-fond-page: #f0f0f0;
-}
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -13,36 +6,184 @@ body {
     color: var(--couleur-texte-sombre);
 }
 
-/* ---------------------------------- */
-/* BARRE DE NAVIGATION (SIMILAIRE À PAGE 5) */
-/* ---------------------------------- */
+/* HEADER */
+
 .barre-navigation {
-    /* ... (CSS de la barre de navigation de Page 5) ... */
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background-color: var(--couleur-secondaire);
+    flex-wrap: wrap; 
+    background-color: lightgray;
     padding: 10px 5%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative; 
 }
-.bouton-publier.actif {
-    background-color: var(--couleur-primaire);
-    color: var(--couleur-secondaire);
-    border-color: var(--couleur-primaire);
+
+.nav-gauche {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
 }
-.bouton-publier.actif .icone-plus {
-    color: var(--couleur-secondaire);
+
+.nav-droite {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute; 
+    right: 5%; 
+    top: 5px; 
+    border-radius: 50%;
 }
-/* Ajoutez le reste du CSS de la barre de navigation de la page 5 */
-.nav-gauche, .nav-droite { display: flex; align-items: center; gap: 10px; }
-.logo-navigation-placeholder { width: 30px; height: 30px; background-color: lightgreen; border-radius: 50%; }
-.utilisateur-nom { font-weight: bold; }
-.bouton-recherche { padding: 8px 15px; border: 1px solid #ccc; border-radius: 20px; background-color: #fff; cursor: pointer; display: flex; align-items: center; gap: 5px; font-size: 1em; }
-.bouton-publier { display: flex; align-items: center; gap: 5px; padding: 8px 15px; border: 1px solid var(--couleur-primaire); border-radius: 20px; background-color: #fff; color: var(--couleur-primaire); text-decoration: none; font-weight: bold; }
-.profil-avatar-placeholder { width: 40px; height: 40px; background-color: #ccc; border-radius: 50%; }
+
+.nav-centre {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 15px; 
+    width: 100%; 
+    margin-top: 20px;
+    order: 3;
+}
+
+.nav-centre button{
+    background-color: white;      
+    color: orange;                
+    border: 2px solid orange;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    width: 120px;
+}
+.nav-centre button:hover{
+    background-color: orange;   
+    color: white;                
+}
+
+.logo-navigation-placeholder {
+    width: 30px;
+    height: 30px;
+    background-color: lightgreen;
+    border-radius: 50%;
+}
+
+.site-nom {
+    font-weight: bold;
+    color: black;
+}
+
+.profil-avatar-placeholder {
+    width: 40px;
+    height: 40px;
+    background-color: #d1d1d1;
+    border-radius: 50%;
+    background: url('placeholder_avatar.jpg') center / cover no-repeat; 
+    cursor: pointer;
+    border: 1px solid #999; 
+}
+
+/*FOOTER*/
+.pied-de-page {
+    background-color: #333333; 
+    padding: 30px 0;
+    width: 100%;
+}
+
+.conteneur-footer {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    justify-content: center;
+    gap: 20px;        
+}
+
+
+.logo2 {
+    display: flex;        
+    gap: 25px;             
+    align-items: center;
+}
+
+
+.placeholder-reseau {
+    width: 40px;           
+    height: 40px;
+    border-radius: 50%;    
+    overflow: hidden;       
+    background-color: white; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.image-reseau {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.texte-contact {
+    color: white;
+    padding: 10px 40px;     
+    font-weight: bold;
+    text-decoration: none; 
+    font-size: 16px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.texte-contact:hover {
+    cursor: pointer;
+    color: orange;
+}
+
+@media (min-width: 650px){
+    .barre-navigation {
+        flex-wrap: nowrap; 
+        justify-content: space-between; 
+        height: 70px; 
+    }
+    .logo-navigation-placeholder{
+        width: 50px;
+        height: 50px;
+    }
+    .nav-gauche {
+        width: auto; 
+        margin-bottom: 0; 
+        justify-content: flex-start; 
+        flex: 1; 
+    }
+    .nav-centre {
+        margin-bottom: 20px;
+        gap: 150px;
+        order: 0;
+        flex: 1; 
+    }
+    .nav-centre button{
+        width: 150px;
+        padding: 10px 0;
+    }
+    .nav-droite {
+        position: static;
+        width: auto;
+        flex: 1; 
+        justify-content: flex-end; 
+    }
+    .profil-avatar-placeholder{
+        width: 50px;
+        height: 50px;
+    }
+    /*footer*/
+    .conteneur-footer {
+        flex-direction: row;
+        gap: 150px;
+    }
+}
 
 
 /* ---------------------------------- */
@@ -294,49 +435,3 @@ body {
     font-size: 3em;
 }
 
-/* Masquer les illustrations sur mobile */
-@media (max-width: 900px) {
-    .illustration-carte-gauche,
-    .illustration-detective-droit,
-    .illustration-validation-bas {
-        display: none;
-    }
-}
-
-/* ---------------------------------- */
-/* RESPONSIVITÉ */
-/* ---------------------------------- */
-
-@media (min-width: 900px) {
-    .conteneur-publication {
-        flex-direction: row;
-        gap: 30px;
-    }
-}
-
-@media (max-width: 899px) {
-    .conteneur-publication {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .section-localisation, .section-infos-trajet {
-        min-width: 100%;
-    }
-}
-
-@media (max-width: 600px) {
-    .boutons-carte {
-        flex-wrap: wrap;
-    }
-    .bouton-carte {
-        flex-grow: 1;
-    }
-    .champ-recherche-carte {
-        width: 100%;
-        margin-top: 10px;
-    }
-    .groupe-horaires, .groupe-prix-passagers {
-        flex-direction: column;
-        gap: 15px;
-    }
-}

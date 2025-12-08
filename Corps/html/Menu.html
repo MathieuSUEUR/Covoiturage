@@ -11,23 +11,23 @@
     <header class="barre-navigation">
         <div class="nav-gauche">
             <div class="logo-navigation-placeholder"></div>
-            <span class="utilisateur-nom">nom</span>
+            <span class="site-nom">nom</span>
         </div>
         
         <div class="nav-centre">
-            <button class="bouton-nav bouton-recherche">
-                <span class="icone-nav">🔍</span> Rechercher
-            </button>
+            <button class="bouton-nav" onclick="window.location.href='./Trajets.html'"> Rechercher </button>
             
-            <button class="bouton-nav bouton-publier">
-                <span class="icone-nav">+</span> Publier
-            </button>
+            <button class="bouton-nav" onclick="window.location.href='./PublierTrajet.html'"> Publier </button>
         </div>
         
         <div class="nav-droite">
-            <div class="profil-avatar-placeholder"></div>
+            <div class="profil-avatar-placeholder">
+                <a href="./Profiles.html">
+                    <img src="" alt="image profil">
+                </a>
+            </div>
         </div>
-    </header>
+    </header> 
 
     <!--PAGE-->
     <main class="contenu-principal">
@@ -89,11 +89,13 @@
     <!--FOOTER-->
     <footer class="pied-de-page">
         <div class="conteneur-footer">
-            <div class="placeholder-reseau">
-                <img src="../images/twitter.jpg" alt="Twitter" class="image-reseau">
-            </div>
-            <div class="placeholder-reseau">
-                <img src="../images/instagram.png" alt="Instagram" class="image-reseau">
+            <div class="logo2">
+                <div class="placeholder-reseau">
+                    <img src="../images/twitter.jpg" alt="Twitter" class="image-reseau">
+                </div>
+                <div class="placeholder-reseau">
+                    <img src="../images/instagram.png" alt="Instagram" class="image-reseau">
+                </div>
             </div>
             <a href="../html/NousContacter.html" class="texte-contact">Contact</a>
         </div>

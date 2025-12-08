@@ -7,26 +7,27 @@
     <link rel="stylesheet" href="../styles/styles_SitesUPJV.css">
 </head>
 <body>
+    <!--HEADER-->
     <header class="barre-navigation">
         <div class="nav-gauche">
             <div class="logo-navigation-placeholder"></div>
-            <span class="utilisateur-nom">nom</span>
+            <span class="site-nom">nom</span>
         </div>
         
         <div class="nav-centre">
-            <button class="bouton-nav bouton-recherche">
-                <span class="icone-nav">🔍</span> Rechercher
-            </button>
+            <button class="bouton-nav" onclick="window.location.href='./Trajets.html'"> Rechercher </button>
             
-            <button class="bouton-nav bouton-publier">
-                <span class="icone-nav">+</span> Publier
-            </button>
+            <button class="bouton-nav" onclick="window.location.href='./PublierTrajet.html'"> Publier </button>
         </div>
         
         <div class="nav-droite">
-            <div class="profil-avatar-placeholder"></div>
+            <div class="profil-avatar-placeholder">
+                <a href="./Profiles.html">
+                    <img src="" alt="image profil">
+                </a>
+            </div>
         </div>
-    </header>
+    </header> 
 
     <main class="contenu-principal">
         <h1 class="titre-page">Les sites UPJV</h1>

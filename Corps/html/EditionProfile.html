@@ -7,23 +7,27 @@
     <link rel="stylesheet" href="page10_edition_profil.css">
 </head>
 <body>
+    <!--HEADER-->
     <header class="barre-navigation">
         <div class="nav-gauche">
             <div class="logo-navigation-placeholder"></div>
-            <span class="utilisateur-nom">nom</span>
+            <span class="site-nom">nom</span>
         </div>
+        
         <div class="nav-centre">
-            <a href="#" class="bouton-recherche">
-                <span class="icone-recherche">🔍</span> Rechercher
-            </a>
+            <button class="bouton-nav" onclick="window.location.href='./Trajets.html'"> Rechercher </button>
+            
+            <button class="bouton-nav" onclick="window.location.href='./PublierTrajet.html'"> Publier </button>
         </div>
+        
         <div class="nav-droite">
-            <a href="#" class="bouton-publier">
-                <span class="icone-plus">+</span> Publier
-            </a>
-            <div class="profil-avatar-placeholder"></div>
+            <div class="profil-avatar-placeholder">
+                <a href="./Profiles.html">
+                    <img src="" alt="image profil">
+                </a>
+            </div>
         </div>
-    </header>
+    </header> 
 
     <main class="contenu-principal">
         <h1 class="titre-page">Edition de profil</h1>
