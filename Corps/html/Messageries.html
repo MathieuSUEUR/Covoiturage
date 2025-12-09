@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="../styles/styles_Messageries.css">
 </head>
 <body>
-    <!--HEADER-->
     <header class="barre-navigation">
         <div class="nav-gauche">
-            <div class="logo-navigation-placeholder"></div>
+            <a href="./Menu.html">
+                <div class="logo-navigation-placeholder"></div>
+            </a>
             <span class="site-nom">nom</span>
         </div>
         
         <div class="nav-centre">
-            <button class="bouton-nav" onclick="window.location.href='./Trajets.html'"> Rechercher </button>
-            
-            <button class="bouton-nav" onclick="window.location.href='./PublierTrajet.html'"> Publier </button>
+            <button class="bouton-nav" onclick="window.location.href='./Trajets.html'">Rechercher</button>
+            <button class="bouton-nav" onclick="window.location.href='./PublierTrajet.html'">Publier</button>
         </div>
         
         <div class="nav-droite">
@@ -28,54 +28,141 @@
             </div>
         </div>
     </header> 
-
     <main class="contenu-principal">
         <h1 class="titre-page">Messagerie</h1>
         
         <div class="conteneur-messagerie">
             <section class="panneau-conversations">
-                <h2 class="titre-conversations">Conversations</h2>
+                <div class="entete-conversations">
+                    <h2 class="titre-conversations">Conversations</h2>
+                    <div class="groupe-recherche">
+                        <input type="text" id="search-input" class="barre-recherche" placeholder="Chercher un contact...">
+                        <div class="icone-recherche" id="toggle-search">🔍</div>
+                    </div>
+                </div>
                 
                 <div class="liste-conversations">
-                    <div class="element-conversation actif">
+                    <div class="element-conversation actif" onclick="changerConversation(1)">
                         <div class="avatar-contact-placeholder"></div>
-                        <p class="nom-contact">Nom</p>
+                        <div class="info-contact">
+                            <p class="nom-contact">Marie Dupont</p>
+                            <p class="dernier-message">Super, merci !</p>
+                        </div>
+                        <div class="infos-droite">
+                            <span class="heure-message">14:32</span>
+                        </div>
                     </div>
-                    
-                    <div class="element-conversation non-lu">
+    
+                    <div class="element-conversation non-lu" onclick="changerConversation(2)">
                         <div class="avatar-contact-placeholder"></div>
-                        <p class="nom-contact">Nom</p>
-                        <span class="compteur-non-lu">+1</span>
+                        <div class="info-contact">
+                            <p class="nom-contact">Jean Martin</p>
+                            <p class="dernier-message">Ok pour demain matin</p>
+                        </div>
+                        <div class="infos-droite">
+                            <span class="heure-message">12:15</span>
+                            <span class="compteur-non-lu">2</span>
+                        </div>
                     </div>
+
+                    <div class="element-conversation" onclick="changerConversation(3)">
+                        <div class="avatar-contact-placeholder"></div>
+                        <div class="info-contact">
+                            <p class="nom-contact">Sophie Bernard</p>
+                            <p class="dernier-message">À quelle heure ?</p>
+                        </div>
+                        <div class="infos-droite">
+                            <span class="heure-message">Hier</span>
+                        </div>
                     </div>
+
+                    <div class="element-conversation" onclick="changerConversation(4)">
+                        <div class="avatar-contact-placeholder"></div>
+                        <div class="info-contact">
+                            <p class="nom-contact">Lucas Petit</p>
+                            <p class="dernier-message">Parfait, à bientôt</p>
+                        </div>
+                        <div class="infos-droite">
+                            <span class="heure-message">Lun</span>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section class="panneau-chat">
                 <div class="entete-chat">
-                    <h2 class="nom-interlocuteur">Nom</h2>
+                    <div class="info-interlocuteur">
+                        <div class="avatar-chat-placeholder"></div>
+                        <div>
+                            <h2 class="nom-interlocuteur" id="chat-titre-nom">Marie Dupont</h2>
+                            <span class="statut-en-ligne">En ligne</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="zone-messages">
-                    <div class="message recu">
-                        <span class="expediteur">Nom</span>
-                        <p>...</p>
+                <div class="zone-messages" id="chat-container-messages">
+                    <div class="separateur-date">
+                        <span>Aujourd'hui</span>
                     </div>
+
+                    <div class="message recu">
+                        <div class="avatar-message-placeholder"></div>
+                        <div class="bulle-message">
+                            <p>Bonjour ! Est-ce que le covoiturage pour demain matin est toujours d'actualité ?</p>
+                            <span class="heure-msg">10:30</span>
+                        </div>
+                    </div>
+
                     <div class="message envoye">
-                        <span class="expediteur">Vous</span>
-                        <p>...</p>
+                        <div class="bulle-message">
+                            <p>Oui bien sûr ! Départ prévu à 8h00 devant la gare.</p>
+                            <span class="heure-msg">10:35</span>
+                        </div>
+                    </div>
+
+                    <div class="message recu">
+                        <div class="avatar-message-placeholder"></div>
+                        <div class="bulle-message">
+                            <p>Super, merci ! Je serai là à 7h55 👍</p>
+                            <span class="heure-msg">14:32</span>
+                        </div>
+                    </div>
+
+                    <div class="message envoye">
+                        <div class="bulle-message">
+                            <p>Parfait, à demain !</p>
+                            <span class="heure-msg">14:33</span>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="zone-saisie">
-                    <input type="text" placeholder="Écrire un message">
-                    <button class="bouton-envoyer">➞</button>
+                    <button class="btn-piece-jointe">📎</button>
+                    <input type="text" placeholder="Écrire un message...">
+                    <button class="bouton-envoyer">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                        </svg>
+                    </button>
                 </div>
             </section>
         </div>
-        
-        <div class="illustration-bulles-gauche"></div>
-        <div class="illustration-enveloppe-droite"></div>
-
     </main>
+
+    <!--FOOTER-->
+    <footer class="pied-de-page">
+        <div class="conteneur-footer">
+            <div class="logo2">
+                <div class="placeholder-reseau">
+                    <img src="../images/twitter.jpg" alt="Twitter" class="image-reseau">
+                </div>
+                <div class="placeholder-reseau">
+                    <img src="../images/instagram.png" alt="Instagram" class="image-reseau">
+                </div>
+            </div>
+            <a href="../html/NousContacter.html" class="texte-contact">Contact</a>
+        </div>
+    </footer>
+    <script src="../javascript/javamessagerie.js"></script>
 </body>
 </html>
