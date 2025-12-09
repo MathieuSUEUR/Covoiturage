@@ -7,83 +7,105 @@ body {
 }
 
 /* HEADER */
-
 .barre-navigation {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; 
-    background-color: lightgray;
-    padding: 10px 5%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: relative; 
+    flex-wrap: wrap;
+    background: white;
+    padding: 15px 5%;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .nav-gauche {
     display: flex;
     align-items: center;
-    gap: 10px;
-    justify-content: center;
+    gap: 12px;
     width: 100%;
-    margin-bottom: 10px;
+    justify-content: center;
+    margin-bottom: 15px;
 }
 
-.nav-droite {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    position: absolute; 
-    right: 5%; 
-    top: 5px; 
+.logo-navigation-placeholder {
+    width: 40px;
+    height: 40px;
+    background: #ff7a28;
     border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(255, 140, 66, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.logo-navigation-placeholder:hover {
+    transform: scale(1.1);
+}
+
+.site-nom {
+    font-weight: 700;
+    font-size: 1.3em;
+    color: #4a4a4a;
+    letter-spacing: 0.5px;
 }
 
 .nav-centre {
     display: flex;
     align-items: center;
-    justify-content: center; 
-    gap: 15px; 
-    width: 100%; 
-    margin-top: 20px;
-    order: 3;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 10px;
 }
 
-.nav-centre button{
-    background-color: white;      
-    color: orange;                
-    border: 2px solid orange;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 1em;
-    font-weight: bold;
+.nav-centre button {
+    background: #ff7a28;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 0.95em;
+    font-weight: 600;
     cursor: pointer;
-    width: 120px;
-}
-.nav-centre button:hover{
-    background-color: orange;   
-    color: white;                
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 140, 66, 0.3);
+    min-width: 130px;
 }
 
-.logo-navigation-placeholder {
-    width: 30px;
-    height: 30px;
-    background-color: lightgreen;
-    border-radius: 50%;
+.nav-centre button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 140, 66, 0.4);
+    background: #ff7a28;
 }
 
-.site-nom {
-    font-weight: bold;
-    color: black;
+.nav-droite {
+    position: absolute;
+    right: 5%;
+    top: 15px;
 }
 
 .profil-avatar-placeholder {
-    width: 40px;
-    height: 40px;
-    background-color: #d1d1d1;
+    width: 45px;
+    height: 45px;
+    background: #8a8a8a ;
     border-radius: 50%;
-    background: url('placeholder_avatar.jpg') center / cover no-repeat; 
     cursor: pointer;
-    border: 1px solid #999; 
+    border: 3px solid white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.profil-avatar-placeholder:hover {
+    transform: scale(1.1);
+    border-color: #ff7a28;
+}
+
+.profil-avatar-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
 }
 
 /*FOOTER*/
@@ -139,7 +161,8 @@ body {
 
 .texte-contact:hover {
     cursor: pointer;
-    color: orange;
+    color: #ff7a28;
+    transform: scale(1.1);
 }
 
 @media (min-width: 650px){
@@ -169,6 +192,8 @@ body {
         padding: 10px 0;
     }
     .nav-droite {
+        display: flex;       
+        align-items: center;
         position: static;
         width: auto;
         flex: 1; 
@@ -184,14 +209,13 @@ body {
         gap: 150px;
     }
 }
-/* ---------------------------------- */
-/* CONTENU PRINCIPAL */
-/* ---------------------------------- */
+
 
 .contenu-principal {
-    max-width: 800px; /* Limiter la largeur pour la lisibilité */
+    max-width: 800px; 
     margin: 20px auto;
     padding: 0 20px;
+    margin-bottom: 75px;
 }
 
 .titre-page {
@@ -210,11 +234,11 @@ body {
 }
 
 .carte-site {
-    background-color: var(--couleur-secondaire);
+    background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-left: 5px solid var(--couleur-primaire);
+    border-left: 5px solid #ff7a28;
 }
 
 .nom-site {
