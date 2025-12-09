@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edition de profil</title>
-    <link rel="stylesheet" href="page10_edition_profil.css">
+    <link rel="stylesheet" href="../styles/styles_EditionProfile.css">
 </head>
 <body>
-    <!--HEADER-->
     <header class="barre-navigation">
         <div class="nav-gauche">
             <div class="logo-navigation-placeholder"></div>
@@ -15,9 +14,8 @@
         </div>
         
         <div class="nav-centre">
-            <button class="bouton-nav" onclick="window.location.href='./Trajets.html'"> Rechercher </button>
-            
-            <button class="bouton-nav" onclick="window.location.href='./PublierTrajet.html'"> Publier </button>
+            <button class="bouton-nav" onclick="window.location.href='./Trajets.html'">Rechercher</button>
+            <button class="bouton-nav" onclick="window.location.href='./PublierTrajet.html'">Publier</button>
         </div>
         
         <div class="nav-droite">
@@ -44,29 +42,42 @@
             
             <form class="formulaire-edition">
                 <div class="groupe-champ">
-                    <label for="date-naissance">Date de naissance:</label>
-                    <input type="text" id="date-naissance" value="../../....">
+                    <label for="date-naissance">Date de naissance</label>
+                    <input type="date" id="date-naissance" value="2000-01-01">
                 </div>
 
                 <div class="groupe-champ">
-                    <label for="etablissement">Établissement:</label>
+                    <label for="etablissement">Établissement</label>
                     <input type="text" id="etablissement" value="IUT amiens">
                 </div>
 
                 <div class="groupe-champ">
-                    <label for="telephone">N° tel:</label>
+                    <label for="telephone">N° de téléphone</label>
                     <input type="tel" id="telephone" value="0682509134">
                 </div>
                 
                 <div class="groupe-champ">
-                    <label for="voiture">voiture:</label>
+                    <label for="voiture">Voiture</label>
                     <input type="text" id="voiture" value="Ferrari 812 superfast">
                 </div>
                 
                 <button type="submit" class="bouton-sauvegarder">Sauvegarder les modifications</button>
             </form>
         </div>
-        
     </main>
+    <!--FOOTER-->
+    <footer class="pied-de-page">
+        <div class="conteneur-footer">
+            <div class="logo2">
+                <div class="placeholder-reseau">
+                    <img src="../images/twitter.jpg" alt="Twitter" class="image-reseau">
+                </div>
+                <div class="placeholder-reseau">
+                    <img src="../images/instagram.png" alt="Instagram" class="image-reseau">
+                </div>
+            </div>
+            <a href="../html/NousContacter.html" class="texte-contact">Contact</a>
+        </div>
+    </footer>
 </body>
 </html>
