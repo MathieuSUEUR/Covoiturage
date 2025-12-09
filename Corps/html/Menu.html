@@ -10,7 +10,9 @@
     <!--HEADER-->
     <header class="barre-navigation">
         <div class="nav-gauche">
+            <a href="./Menu.html">
             <div class="logo-navigation-placeholder"></div>
+            </a>
             <span class="site-nom">nom</span>
         </div>
         
@@ -51,27 +53,45 @@
         <section class="section-prochain-trajet">
             <h2 class="titre-section">Prochain trajet:</h2>
             <div class="carte-trajet-reserve">
-                <div class="trajet-entete">
+    
+            <div class="corps-carte">
+                
+                <div class="bloc-conducteur">
+                    <a href="./Profiles.html">
                     <div class="profil-mini-placeholder"></div>
-                    <div class="trajet-villes">
-                        <span class="ville-depart">PDD</span> 
-                        <span class="fleche">➞</span> 
+                    </a>
+                    <p class="detail-nom">nom</p> </div>
+
+                <div class="bloc-trajet">
+                    <div class="colonne-info">
+                        <span class="ville-depart">PDD</span>
+                        <span class="detail-horaire">HH:MM</span>
+                    </div>
+
+                    <div class="colonne-fleches">
+                        <span class="fleche">➞</span>
+                        <span class="fleche">➞</span>
+                    </div>
+
+                    <div class="colonne-info">
                         <span class="ville-arrivee">PDA</span>
+                        <span class="detail-horaire">HH:MM</span>
                     </div>
+                </div>
+
+                <a href="./Messageries.html">
                     <div class="icone-message-placeholder">💬</div>
+                </a>
+            </div>
+
+            <div class="detail-infos-bas">
+                <div class="infos-pratiques">
+                    <span class="info-place"><span class="icone-personne">👤</span> ../4</span>
+                    <span class="info-voiture">voiture</span>
+                    <span class="info-prix">prix€</span>
                 </div>
-                <div class="trajet-details">
-                    <p class="detail-nom">nom</p>
-                    <p class="detail-horaire">Horaire</p>
-                    <div class="detail-infos-bas">
-                        <span class="info-place">
-                            <span class="icone-personne">👤</span> 1/4
-                        </span>
-                        <span class="info-voiture">car</span>
-                        <span class="info-prix">12€</span>
-                        <button class="bouton-annuler">Annuler ma réservation!</button>
-                    </div>
-                </div>
+                <button class="bouton-annuler">Annuler</button>
+            </div>
             </div>
         </section>
 
@@ -79,10 +99,6 @@
             <h2 class="titre-section">Pour communiquer avec les utilisateurs</h2>
             <a href="#" class="bouton-messagerie">Messagerie</a>
         </section>
-
-        <div class="illustration-voiture-gauche"></div>
-        <div class="illustration-volant-droit"></div>
-        <div class="illustration-fleches-gauche"></div>
 
     </main>
     
