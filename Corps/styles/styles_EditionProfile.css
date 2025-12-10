@@ -28,7 +28,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    background: var(--blanc);
+    background: white;
     padding: 15px 5%;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -48,7 +48,7 @@ body {
 .logo-navigation-placeholder {
     width: 40px;
     height: 40px;
-    background: var(--orange);
+    background: #ff7a28;
     border-radius: 50%;
     box-shadow: 0 4px 15px rgba(255, 140, 66, 0.3);
     transition: transform 0.3s ease;
@@ -61,7 +61,7 @@ body {
 .site-nom {
     font-weight: 700;
     font-size: 1.3em;
-    color: var(--gris-fonce);
+    color: #4a4a4a;
     letter-spacing: 0.5px;
 }
 
@@ -75,7 +75,7 @@ body {
 }
 
 .nav-centre button {
-    background: var(--orange);
+    background: #ff7a28;
     color: white;
     border: none;
     padding: 12px 25px;
@@ -103,7 +103,7 @@ body {
 .profil-avatar-placeholder {
     width: 45px;
     height: 45px;
-    background: var(--gris-moyen);
+    background: #8a8a8a ;
     border-radius: 50%;
     cursor: pointer;
     border: 3px solid white;
@@ -114,7 +114,7 @@ body {
 
 .profil-avatar-placeholder:hover {
     transform: scale(1.1);
-    border-color: var(--orange);
+    border-color: #ff7a28;
 }
 
 .profil-avatar-placeholder img {
@@ -350,7 +350,8 @@ body {
 
 .texte-contact:hover {
     cursor: pointer;
-    color: orange;
+    color: #ff7a28;
+    transform: scale(1.1);
 }
 
 @media (min-width: 800px) {

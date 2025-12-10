@@ -12,10 +12,13 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
     <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
 </head>
+
 <body>
     <header class="barre-navigation">
         <div class="nav-gauche">
+            <a href="./Menu.html">
             <div class="logo-navigation-placeholder"></div>
+            </a>
             <span class="site-nom">nom</span>
         </div>
         <div class="nav-centre">
@@ -30,6 +33,8 @@
     </header> 
 
     <main class="contenu-principal">
+        <h1 class="titre-page">Publier un trajet</h1>
+
         <div class="conteneur-recherche">
             
             <div class="groupe-resultats-gauche">
@@ -82,35 +87,37 @@
                     </form>
                 </div>
             </div>
-            
             <div class="bloc-filtres-carte">
-                <h1 class="titre-page">Publier un trajet</h1>
 
-                <div class="bloc-carte-formulaire">
-                    <p class="instruction-selection">Définir l'itinéraire :</p>
-                    
-                    <div class="champs-carte">
-                        <div class="champ-adresse depart">
-                            <label>Départ</label>
-                            <input type="text" id="input-depart" placeholder="Rechercher une adresse">
-                        </div>
-                        <div class="champ-adresse arrivee">
-                            <label>Arrivée</label>
-                            <input type="text" id="input-arrivee" placeholder="Rechercher une adresse">
-                        </div>
-                    </div>
-                    
-                    <div class="carte-placeholder">
-                        <div id="map"></div>
+                <div class="bloc-filtres-carte">
+            <div class="bloc-carte-formulaire">
+                <p class="instruction-selection">Définir l'itinéraire :</p>
+                
+                <div class="champs-carte">
+                    <div class="champ-adresse depart">
+                        <label>Départ</label>
+                        <input type="text" id="input-depart" placeholder="Rechercher une adresse (ex: Paris)">
                     </div>
 
-                    <button class="bouton-valider">Valider le trajet sur la carte</button>
+                    <div class="champ-adresse arrivee">
+                        <label>Arrivée</label>
+                        <input type="text" id="input-arrivee" placeholder="Rechercher une adresse (ex: Lyon)">
+                    </div>
                 </div>
+                
+                <div class="carte-placeholder">
+                    <div id="map"></div>
+                </div>
+
+                <button class="bouton-valider">Valider le trajet sur la carte</button>
+                </div>
+             </div>
             </div>
 
         </div>
     </main>
-
+    <script src="../javascript/javapubliertrajet.js"></script>
+    <script src="../javascript/map.js"></script>
     <footer class="pied-de-page">
         <div class="conteneur-footer">
             <div class="logo2">
@@ -124,7 +131,5 @@
             <a href="../html/NousContacter.html" class="texte-contact">Contact</a>
         </div>
     </footer>
-
-    <script src="../javascript/javapubliertrajet.js"></script>
 </body>
 </html>

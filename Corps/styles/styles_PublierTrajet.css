@@ -24,7 +24,7 @@ body {
     background: white;
     padding: 15px 5%;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 100;
 }
@@ -136,7 +136,6 @@ body {
     width: 100%;
 }
 
-/* --- BLOC DROITE : CARTE & INPUTS (Même style que Rechercher) --- */
 .bloc-filtres-carte {
     order: 1;
     width: 100%;
@@ -227,7 +226,6 @@ body {
     transform: scale(1.02);
 }
 
-/* --- BLOC GAUCHE : DÉTAILS (Remplace les résultats) --- */
 .groupe-resultats-gauche {
     order: 2;
     width: 100%;
@@ -254,7 +252,6 @@ body {
     display: block;
 }
 
-/* Styles spécifiques au formulaire de gauche */
 .show-always {
     width: 100%;
     display: flex;
@@ -276,20 +273,43 @@ body {
     gap: 5px;
 }
 
+
 .colonne-input span,
 .colonne-input label {
     font-weight: 600;
     font-size: 0.9em;
     color: #4a4a4a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.colonne-input span::before,
+.colonne-input label::before {
+    content: '';
+    width: 4px;
+    height: 20px;
+    background: var(--orange-principal);
+    border-radius: 2px;
 }
 
 .input-classique {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 14px 18px; 
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
     font-size: 1em;
+    background: #fafbfc;
     box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.input-classique:focus {
+    outline: none;
+    border-color: var(--orange-principal);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(255, 122, 40, 0.1);
 }
 
 .separateur {
@@ -380,6 +400,7 @@ body {
 .texte-contact:hover {
     cursor: pointer;
     color: #ff7a28;
+    transform: scale(1.1);
 }
 
 /* --- RESPONSIVE 800PX (Comme la page Recherche) --- */
@@ -423,7 +444,6 @@ body {
         gap: 150px;
     }
 
-    /* LAYOUT CÔTE À CÔTE */
     .contenu-principal {
         max-width: 1200px;
         margin: 20px auto;
@@ -435,7 +455,6 @@ body {
         gap: 30px;
     }
 
-    /* INVERSION : Gauche (Détails) et Droite (Carte) */
     .groupe-resultats-gauche {
         order: 1;
         flex: 1;
@@ -443,7 +462,7 @@ body {
 
     .bloc-filtres-carte {
         order: 2;
-        flex: 2.2; /* La carte prend plus de place */
+        flex: 2.2; 
     }
 
     .champs-carte {

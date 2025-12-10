@@ -332,7 +332,15 @@ body {
     flex-direction: column;
     align-items: center;
 }
-
+/* Style pour le message quand il n'y a pas de trajet */
+.message-vide {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    font-size: 1.1em;
+    padding: 30px 10px;
+    margin: 0;
+}
 /* La carte globale */
 .carte-trajet-reserve {
     background-color: white; 
