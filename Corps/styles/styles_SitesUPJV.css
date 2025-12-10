@@ -15,7 +15,7 @@ body {
     background: white;
     padding: 15px 5%;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 100;
 }
