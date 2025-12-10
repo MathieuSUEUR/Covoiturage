@@ -4,110 +4,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publier un trajet</title>
+    
     <link rel="stylesheet" href="../styles/styles_PublierTrajet.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
 </head>
 <body>
-    <!--HEADER-->
     <header class="barre-navigation">
         <div class="nav-gauche">
             <div class="logo-navigation-placeholder"></div>
             <span class="site-nom">nom</span>
         </div>
-        
         <div class="nav-centre">
             <button class="bouton-nav" onclick="window.location.href='./Trajets.html'"> Rechercher </button>
-            
             <button class="bouton-nav" onclick="window.location.href='./PublierTrajet.html'"> Publier </button>
         </div>
-        
         <div class="nav-droite">
             <div class="profil-avatar-placeholder">
-                <a href="./Profiles.html">
-                    <img src="" alt="image profil">
-                </a>
+                <a href="./Profiles.html"><img src="" alt="image profil"></a>
             </div>
         </div>
     </header> 
 
     <main class="contenu-principal">
-        <h1 class="titre-page">Publier un trajet</h1>
-        
-        <div class="conteneur-publication">
-            <section class="section-localisation">
-                <h2 class="sous-titre">Choisissez un point de départ et d'arrivée :</h2>
-                
-                <div class="boutons-carte">
-                    <button class="bouton-carte actif">Départ</button>
-                    <button class="bouton-carte">Arrivée</button>
-                    <div class="champ-recherche-carte">
-                        <span class="icone-recherche">🔍</span>
-                        <input type="text" placeholder="Rechercher une adresse">
-                    </div>
-                </div>
-
-                <div class="carte-placeholder">
-                    <p>Carte interactive (Amiens et environs)</p>
-                </div>
-            </section>
-
-            <section class="section-infos-trajet">
-                <h2 class="sous-titre">Information du trajet:</h2>
-                <form class="formulaire-trajet">
-                    <div class="groupe-input">
-                        <label for="depart">Départ:</label>
-                        <input type="text" id="depart" placeholder="Rechercher une adresse">
-                    </div>
+        <div class="conteneur-recherche">
+            
+            <div class="groupe-resultats-gauche">
+                <div class="bloc-filtres">
+                    <span class="texte-trier">Détails du trajet</span>
                     
-                    <div class="groupe-input">
-                        <label for="arrivee">Arrivée:</label>
-                        <input type="text" id="arrivee" placeholder="Rechercher une adresse">
-                    </div>
-
-                    <div class="groupe-horaires">
-                        <div class="groupe-input">
-                            <label for="horaire-depart">Horaire:</label>
-                            <input type="text" id="horaire-depart" placeholder="HH:MM">
-                        </div>
-                        <div class="groupe-input">
-                            <label for="horaire-arrivee">Horaire:</label>
-                            <input type="text" id="horaire-arrivee" placeholder="HH:MM">
-                        </div>
-                    </div>
-                    
-                    <div class="groupe-prix-passagers">
-                        <div class="groupe-input prix">
-                            <label for="prix">Prix:</label>
-                            <div class="champ-avec-symbole">
-                                <span>€</span>
-                                <input type="number" id="prix" placeholder="...">
+                    <form class="formulaire-details" onsubmit="event.preventDefault();">
+                        
+                        <div class="filtre-heure show-always">
+                            <label>Horaires :</label>
+                            <div class="ligne-horaire">
+                                <div class="colonne-input">
+                                    <span>Départ</span>
+                                    <input type="time" class="input-classique">
+                                </div>
+                                <div class="colonne-input">
+                                    <span>Arrivée</span>
+                                    <input type="time" class="input-classique">
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="groupe-input passagers">
-                            <label for="passagers">passagers max:</label>
-                            <select id="passagers">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
+
+                        <hr class="separateur">
+
+                        <div class="filtre-heure show-always">
+                            <label>Infos pratiques :</label>
+                            <div class="ligne-horaire">
+                                <div class="colonne-input">
+                                    <span>Prix (€)</span>
+                                    <input type="number" placeholder="0" class="input-classique">
+                                </div>
+                                <div class="colonne-input">
+                                    <span>Places</span>
+                                    <select class="input-classique">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option selected>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="groupe-cgu">
+                            <input type="checkbox" id="cgu">
+                            <label for="cgu">J'accepte les CGU</label>
+                        </div>
+
+                        <button class="bouton-publier-final">Confirmer la publication</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="bloc-filtres-carte">
+                <h1 class="titre-page">Publier un trajet</h1>
+
+                <div class="bloc-carte-formulaire">
+                    <p class="instruction-selection">Définir l'itinéraire :</p>
+                    
+                    <div class="champs-carte">
+                        <div class="champ-adresse depart">
+                            <label>Départ</label>
+                            <input type="text" id="input-depart" placeholder="Rechercher une adresse">
+                        </div>
+                        <div class="champ-adresse arrivee">
+                            <label>Arrivée</label>
+                            <input type="text" id="input-arrivee" placeholder="Rechercher une adresse">
                         </div>
                     </div>
-
-                    <div class="groupe-cgu">
-                        <input type="checkbox" id="cgu" required>
-                        <label for="cgu">J'accepte les <a href="#" class="lien-cgu">CGU</a></label>
+                    
+                    <div class="carte-placeholder">
+                        <div id="map"></div>
                     </div>
 
-                    <button type="submit" class="bouton-publier-form">Publier</button>
-                </form>
-            </section>
+                    <button class="bouton-valider">Valider le trajet sur la carte</button>
+                </div>
+            </div>
+
         </div>
-
-        <div class="illustration-carte-gauche"></div>
-        <div class="illustration-detective-droit"></div>
-        <div class="illustration-validation-bas"></div>
-
     </main>
+
+    <footer class="pied-de-page">
+        <div class="conteneur-footer">
+            <div class="logo2">
+                <div class="placeholder-reseau">
+                    <img src="../images/twitter.jpg" alt="Twitter" class="image-reseau">
+                </div>
+                <div class="placeholder-reseau">
+                    <img src="../images/instagram.png" alt="Instagram" class="image-reseau">
+                </div>
+            </div>
+            <a href="../html/NousContacter.html" class="texte-contact">Contact</a>
+        </div>
+    </footer>
+
+    <script src="../javascript/javapubliertrajet.js"></script>
 </body>
 </html>
