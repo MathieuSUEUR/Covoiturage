@@ -21,6 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($user && $password == $user['mot_de_passe']) {
 
+            // possible HASH du ID pour éviter les failles de sécurité
+
             $_SESSION['id'] = $user['id'];
             $_SESSION['nom'] = $user['nom'];
             
