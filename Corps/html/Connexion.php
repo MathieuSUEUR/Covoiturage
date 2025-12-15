@@ -1,7 +1,7 @@
 <?php
 session_start(); // Important pour la connexion
 
-require '../../../../includes/Pdo_SAE.php'; 
+require '../include/Pdo_SAE.php'; 
 
 $message_erreur = "";
 
