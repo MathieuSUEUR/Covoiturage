@@ -98,6 +98,8 @@ body {
     overflow: hidden;
 }
 
+
+
 .profil-avatar-placeholder:hover {
     transform: scale(1.1);
     border-color: #ff7a28;
