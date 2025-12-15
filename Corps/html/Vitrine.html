@@ -1,21 +1,36 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-    <title>Vitrine</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenue - Covoiturage Amiens</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../styles/styles_vitrine.css">
 </head>
 <body>
-    <div class="Empilement">
+    
+    <div class="background-overlay"></div>
+
+    <main class="card-container">
+        <div class="logo-area">
+            logo
+        </div>
+
         <h1>Nom de l'application</h1>
 
-        <p>(Nom) est un site permettant aux étudiants sur amiens de pouvoir faire
-            leurs trajets quotidien plus facilement en covoiturage.</p>
+        <p>
+            Simplifiez vos trajets quotidiens à Amiens. 
+            Trouvez ou proposez un covoiturage étudiant en quelques clics. 
+            Écologique, économique et convivial.
+        </p>
 
-        <div class="buttons">
-        <button onclick="window.location.href='Connexion.html'">Connexion</button>
-        <button onclick="window.location.href='Inscription.html'">S'inscrire</button>
+        <div class="button-group">
+            <a href="Connexion.html" class="btn btn-secondary">Connexion</a>
+            <a href="Inscription.html" class="btn btn-primary">S'inscrire</a>
         </div>
     
-        <a href="CGU.html" target="_blank">CGU</a>
-    </div>
+        <a href="CGU.html" target="_blank" class="link-cgu">Conditions Générales d'Utilisation</a>
+    </main>
+
 </body>
 </html>

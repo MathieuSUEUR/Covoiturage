@@ -1,87 +1,150 @@
-body{
-    background-image: url('../images/imgaeVitrine.png');
+/* --- RESET & GLOBAL --- */
+* {
+    box-sizing: border_box;
     margin: 0;
-    font-family: Arial, sans-serif;
+    padding: 0;
 }
 
-h1{
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* L'image prend tout l'écran, centrée et ne se répète pas */
+    background-image: url('../images/imgaeVitrine.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center;     /* Centre verticalement */
+    color: #333;
+    overflow: hidden; /* Évite les barres de défilement inutiles */
+}
+
+/* Ajoute un voile sombre sur l'image pour faire ressortir la boite blanche */
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Noir à 40% d'opacité */
+    z-index: -1;
+}
+
+/* --- LA CARTE CENTRALE (ANCIENNEMENT EMPILEMENT) --- */
+.card-container {
+    background-color: rgba(255, 255, 255, 0.95); /* Blanc légèrement transparent */
+    backdrop-filter: blur(10px); /* Effet de flou derrière la carte (moderne) */
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 450px; /* Un peu plus large pour respirer */
     text-align: center;
-    margin-top: 25px;
-    margin-bottom: 75px;
+    transition: transform 0.3s ease;
 }
 
-p{
-    font-size: 20px;
-    max-width: 280px;
-    margin: 0 auto;
-    margin-bottom: 75px;
-    text-align: justify;
-}
- 
-.buttons button {
-    background-color: white;
-    color: #ff751f;
-    border: 2px solid #ff751f;
-    border-radius: 5px;
-    margin-bottom: 20px;   /* moins d’espace pour mobile */
-    padding: 10px 20px;
-    width: 90%;             /* s’adapte aux petits écrans */
-    max-width: 250px;
-    cursor: pointer;
+.logo-area {
+    font-size: 50px;
+    margin-bottom: 10px;
 }
 
-.buttons button:hover {
-    background-color: #ff751f;
-    color: white;
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
 }
 
-
-a:visited{
-    color: #ff751f;
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 40px;
+    padding: 0 10px;
 }
-.Empilement{
-    width: 80%;
-    max-width: 370px;
+
+/* --- BOUTONS --- */
+.button-group {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 25px 15px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    gap: 15px;
+    margin-bottom: 30px;
 }
 
+.btn {
+    text-decoration: none;
+    padding: 14px 20px;
+    border-radius: 50px; /* Boutons arrondis "pilule" */
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: 2px solid transparent;
+}
+
+/* Bouton Principal (Inscription) */
+.btn-primary {
+    background-color: #ff751f;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 117, 31, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #e5600e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 117, 31, 0.4);
+}
+
+/* Bouton Secondaire (Connexion) */
+.btn-secondary {
+    background-color: transparent;
+    color: #ff751f;
+    border: 2px solid #ff751f;
+}
+
+.btn-secondary:hover {
+    background-color: #ff751f;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* --- LIEN CGU --- */
+.link-cgu {
+    color: #999;
+    font-size: 12px;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.3s;
+}
+
+.link-cgu:hover {
+    color: #ff751f;
+    border-bottom: 1px solid #ff751f;
+}
+
+/* --- MEDIA QUERIES (VERSION ORDI) --- */
 @media (min-width: 768px) {
-    .Empilement{
-        width: 90%;
+    .card-container {
         max-width: 600px;
-        padding: 40px 30px;
-        margin: 120px auto;
-    }
-    .Empilement p {
-        max-width: 400px;    /* augmente la largeur maximale du texte */
-        font-size: 20px;     /* éventuellement plus lisible */
-        line-height: 1.5;    /* meilleure lecture */
+        padding: 50px;
     }
 
-   .buttons {
-        display: flex;          /* place les boutons côte à côte */
-        justify-content: center;  /* centre les boutons horizontalement */
-        gap: 150px;                /* espace entre les boutons */
-        margin-bottom: 20px;      /* espace entre les boutons et CGU */
+    h1 {
+        font-size: 36px;
     }
 
-    .buttons button {
-        width: 200px;             /* taille fixe sur desktop */
-        margin-bottom: 0;         /* supprime la marge verticale du mobile */
+    p {
+        font-size: 18px;
     }
- 
-    a {
-        display: block;           /* s’assure que CGU est centré en dessous */
-        text-align: center;
-        margin-top: 10px;
+
+    .button-group {
+        flex-direction: row; /* Les boutons passent côte à côte */
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .btn {
+        width: 180px; /* Largeur fixe pour l'équilibre */
     }
 }
-

@@ -77,7 +77,7 @@ if ($prochainTrajet) {
             <a href="./Menu.php">
             <div class="logo-navigation-placeholder"></div>
             </a>
-            <span class="site-nom"><?= htmlspecialchars($user['prenom'] . ' ' . $user['nom']) ?></span>
+            <span class="site-nom">BLABLANOM</span>
         </div>
         
         <div class="nav-centre">
