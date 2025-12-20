@@ -1,3 +1,38 @@
+<?php
+    require '../../Includes/config.php'; 
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nom= htmlspecialchars($_POST['nom']);
+        $prenom= htmlspecialchars($_POST['prenom']);
+        $email= htmlspecialchars($_POST['email']);
+        $telephone= htmlspecialchars($_POST['telephone']);
+        $mdp= password_hash($_POST['mot-de-passe'], PASSWORD_BCRYPT);
+        $civilite= $_POST['civilite'];
+        $date_naissance= $_POST['date-naissance'];
+
+        if(empty($nom) || empty($prenom) || empty($email) || empty($telephone) || empty($mdp) || empty($civilite) || empty($date_naissance)){
+            echo "<script>alert('Veuillez remplir tous les champs.');</script>";
+        } else {
+            
+            $stmt = $pdo->prepare("INSERT INTO Utilisateurs (nom, prenom, email, telephone, mdp, civilite, date_naissance) VALUES (:nom, :prenom, :email, :telephone, :mdp, :civilite, :date_naissance)");
+            $stmt->bindParam(':nom', $nom);
+            $stmt->bindParam(':prenom', $prenom);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':telephone', $telephone);
+            $stmt->bindParam(':mdp', $mdp);
+            $stmt->bindParam(':civilite', $civilite);
+            $stmt->bindParam(':date_naissance', $date_naissance);
+            $stmt->execute();
+
+            if($stmt){
+                header("Location: Menu.php");
+                exit();
+            } else {
+                echo "<script>alert('Erreur lors de l'inscription.');</script>";
+            }
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

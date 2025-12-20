@@ -1,3 +1,11 @@
+<?php
+    require '../../Includes/config.php'; 
+
+    if (!isset($_SESSION['user_id'])) {
+    header("Location: connexion.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,21 +18,24 @@
     <!--HEADER-->
     <header class="barre-navigation">
         <div class="nav-gauche">
-            <a href="./Menu.html">
-            <div class="logo-navigation-placeholder"></div>
+            <a href="Menu.php">
+                <div class="logo-navigation-placeholder">test</div>
             </a>
             <span class="site-nom">nom</span>
         </div>
         
         <div class="nav-centre">
-            <button class="bouton-nav" onclick="window.location.href='./Trajets.html'"> Rechercher </button>
-            
-            <button class="bouton-nav" onclick="window.location.href='./PublierTrajet.html'"> Publier </button>
+            <a href="./Trajets.php">
+                <button class="bouton-nav" > Rechercher </button>
+            </a>
+            <a href="./PublierTrajet.php">
+                <button class="bouton-nav" > Publier </button>
+            </a>
         </div>
         
         <div class="nav-droite">
             <div class="profil-avatar-placeholder">
-                <a href="./Profiles.html">
+                <a href="./Profiles.php">
                     <img src="" alt="image profil">
                 </a>
             </div>
@@ -44,7 +55,7 @@
         <section class="section-sites">
             <h2 class="titre-section">Les sites UPJV ></h2>
             <div class=" lessitesupjv">
-                <a href="SitesUPJV.html" class="lien-sites-upjv">
+                <a href="SitesUPJV.php" class="lien-sites-upjv">
                  <img src="../images/lessitesupjv.png" alt="les sites upjv" class="image-site-upjv">
                 </a>
             </div>
@@ -97,7 +108,7 @@
 
         <section class="section-communication">
             <h2 class="titre-section">Pour communiquer avec les utilisateurs</h2>
-            <a href="#" class="bouton-messagerie">Messagerie</a>
+            <a href="./Messageries.php" class="bouton-messagerie">Messagerie</a>
         </section>
 
     </main>

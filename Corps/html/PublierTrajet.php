@@ -1,3 +1,6 @@
+<?php
+    require '../../Includes/config.php'; 
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,18 +19,24 @@
 <body>
     <header class="barre-navigation">
         <div class="nav-gauche">
-            <a href="./Menu.html">
+            <a href="./Menu.php">
             <div class="logo-navigation-placeholder"></div>
             </a>
             <span class="site-nom">nom</span>
         </div>
         <div class="nav-centre">
-            <button class="bouton-nav" onclick="window.location.href='./Trajets.html'"> Rechercher </button>
-            <button class="bouton-nav" onclick="window.location.href='./PublierTrajet.html'"> Publier </button>
+            <a href="./Trajets.php">
+                <button class="bouton-nav" > Rechercher </button>
+            </a>
+            <a href="./PublierTrajet.php">
+                <button class="bouton-nav" > Publier </button>
+            </a>
         </div>
         <div class="nav-droite">
             <div class="profil-avatar-placeholder">
-                <a href="./Profiles.html"><img src="" alt="image profil"></a>
+                <a href="./Profiles.php">
+                    <img src="" alt="image profil">
+                </a>
             </div>
         </div>
     </header> 
