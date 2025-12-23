@@ -109,9 +109,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    // ============================================================
-    // PARTIE 2 : GESTION DU BOUTON PUBLIER (Validation & Popups)
-    // ============================================================
 
     const btnPublier = document.querySelector('.bouton-publier-final');
     const checkboxCGU = document.getElementById('cgu');
