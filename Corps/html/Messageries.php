@@ -1,6 +1,21 @@
 <?php
-    require '../../Includes/config.php'; 
+require __DIR__ . '/../../Includes/config.php';
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (isset($_GET['test_id'])) {
+    $_SESSION['id_user'] = (int)$_GET['test_id'];
+}
+
+if (!isset($_SESSION['id_user'])) {
+    $_SESSION['id_user'] = 1; 
+}
+
+$monId = $_SESSION['id_user'];
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,31 +25,25 @@
     <link rel="stylesheet" href="../styles/styles_Messageries.css">
 </head>
 <body>
+    
     <header class="barre-navigation">
         <div class="nav-gauche">
-            <a href="./Menu.html">
-                <div class="logo-navigation-placeholder"></div>
-            </a>
+            <a href="./Menu.php"><div class="logo-navigation-placeholder"></div></a>
             <span class="site-nom">nom</span>
         </div>
-        
         <div class="nav-centre">
-            <a href="./Trajets.php">
-                <button class="bouton-nav" > Rechercher </button>
-            </a>
-            <a href="./PublierTrajet.php">
-                <button class="bouton-nav" > Publier </button>
-            </a>
+            <a href="./Trajets.php"><button class="bouton-nav">Rechercher</button></a>
+            <a href="./PublierTrajet.php"><button class="bouton-nav">Publier</button></a>
         </div>
-        
         <div class="nav-droite">
             <div class="profil-avatar-placeholder">
                 <a href="./Profiles.php">
-                    <img src="" alt="image profil">
+                    <img src="../images/default_avatar.png" alt="Profil" style="width:100%; height:100%; object-fit:cover;">
                 </a>
             </div>
         </div>
     </header> 
+
     <main class="contenu-principal">
         <h1 class="titre-page">Messagerie</h1>
         
@@ -42,57 +51,66 @@
             <section class="panneau-conversations">
                 <div class="entete-conversations">
                     <h2 class="titre-conversations">Conversations</h2>
-                    <div class="groupe-recherche">
-                        <input type="text" id="search-input" class="barre-recherche" placeholder="Chercher un contact...">
-                        <div class="icone-recherche" id="toggle-search">🔍</div>
                     </div>
-                </div>
                 
                 <div class="liste-conversations">
-                    <div class="element-conversation actif" onclick="changerConversation(1)">
-                        <div class="avatar-contact-placeholder"></div>
-                        <div class="info-contact">
-                            <p class="nom-contact">Marie Dupont</p>
-                            <p class="dernier-message">Super, merci !</p>
-                        </div>
-                        <div class="infos-droite">
-                            <span class="heure-message">14:32</span>
-                        </div>
-                    </div>
-    
-                    <div class="element-conversation non-lu" onclick="changerConversation(2)">
-                        <div class="avatar-contact-placeholder"></div>
-                        <div class="info-contact">
-                            <p class="nom-contact">Jean Martin</p>
-                            <p class="dernier-message">Ok pour demain matin</p>
-                        </div>
-                        <div class="infos-droite">
-                            <span class="heure-message">12:15</span>
-                            <span class="compteur-non-lu">2</span>
-                        </div>
-                    </div>
+                    <?php
+                    // Requête SQL pour la liste de gauche
+                    $sql = "
+                        SELECT u.id_user, u.nom, u.prenom, u.photo_de_profil, m.message, m.date_envoi, m.est_lu, m.id_expediteur
+                        FROM Utilisateurs u
+                        JOIN messages m ON (
+                            (m.id_expediteur = u.id_user AND m.id_destinataire = :monId) OR
+                            (m.id_destinataire = u.id_user AND m.id_expediteur = :monId)
+                        )
+                        WHERE m.id_message = (
+                            SELECT MAX(id_message) FROM messages m2 
+                            WHERE (m2.id_expediteur = u.id_user AND m2.id_destinataire = :monId)
+                            OR (m2.id_destinataire = u.id_user AND m2.id_expediteur = :monId)
+                        )
+                        ORDER BY m.date_envoi DESC
+                    ";
 
-                    <div class="element-conversation" onclick="changerConversation(3)">
-                        <div class="avatar-contact-placeholder"></div>
-                        <div class="info-contact">
-                            <p class="nom-contact">Sophie Bernard</p>
-                            <p class="dernier-message">À quelle heure ?</p>
-                        </div>
-                        <div class="infos-droite">
-                            <span class="heure-message">Hier</span>
-                        </div>
-                    </div>
+                    try {
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->execute(['monId' => $monId]);
+                        $conversations = $stmt->fetchAll();
+                    } catch (PDOException $e) {
+                        $conversations = [];
+                        // En cas d'erreur SQL, on affiche rien pour ne pas casser la page
+                    }
 
-                    <div class="element-conversation" onclick="changerConversation(4)">
-                        <div class="avatar-contact-placeholder"></div>
-                        <div class="info-contact">
-                            <p class="nom-contact">Lucas Petit</p>
-                            <p class="dernier-message">Parfait, à bientôt</p>
+                    foreach($conversations as $conv): 
+                        $classNonLu = ($conv['est_lu'] == 0 && $conv['id_expediteur'] != $monId) ? 'non-lu' : '';
+                        $heure = date('H:i', strtotime($conv['date_envoi']));
+                        
+                        $imgSrc = '';
+                        if (!empty($conv['photo_de_profil'])) {
+                            $imgSrc = 'data:image/jpeg;base64,' . base64_encode($conv['photo_de_profil']);
+                        }
+                    ?>
+                        <div class="element-conversation <?= $classNonLu ?>" 
+                             onclick="changerConversation(<?= $conv['id_user'] ?>)"
+                             data-id="<?= $conv['id_user'] ?>"
+                             data-nom="<?= htmlspecialchars($conv['prenom'] . ' ' . $conv['nom']) ?>">
+                            
+                            <div class="avatar-contact-placeholder">
+                                <?php if($imgSrc): ?>
+                                    <img src="<?= $imgSrc ?>" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">
+                                <?php endif; ?>
+                            </div>
+                            
+                            <div class="info-contact">
+                                <p class="nom-contact"><?= htmlspecialchars($conv['prenom'] . ' ' . $conv['nom']) ?></p>
+                                <p class="dernier-message"><?= htmlspecialchars(substr($conv['message'], 0, 30)) ?>...</p>
+                            </div>
+                            
+                            <div class="infos-droite">
+                                <span class="heure-message"><?= $heure ?></span>
+                                <?php if($classNonLu): ?> <span class="compteur-non-lu">!</span> <?php endif; ?>
+                            </div>
                         </div>
-                        <div class="infos-droite">
-                            <span class="heure-message">Lun</span>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </section>
 
@@ -101,56 +119,18 @@
                     <div class="info-interlocuteur">
                         <div class="avatar-chat-placeholder"></div>
                         <div>
-                            <h2 class="nom-interlocuteur" id="chat-titre-nom">Marie Dupont</h2>
-                            <span class="statut-en-ligne">En ligne</span>
+                            <h2 class="nom-interlocuteur" id="chat-titre-nom">Sélectionnez une conversation</h2>
                         </div>
                     </div>
                 </div>
                 
                 <div class="zone-messages" id="chat-container-messages">
-                    <div class="separateur-date">
-                        <span>Aujourd'hui</span>
-                    </div>
-
-                    <div class="message recu">
-                        <div class="avatar-message-placeholder"></div>
-                        <div class="bulle-message">
-                            <p>Bonjour ! Est-ce que le covoiturage pour demain matin est toujours d'actualité ?</p>
-                            <span class="heure-msg">10:30</span>
-                        </div>
-                    </div>
-
-                    <div class="message envoye">
-                        <div class="bulle-message">
-                            <p>Oui bien sûr ! Départ prévu à 8h00 devant la gare.</p>
-                            <span class="heure-msg">10:35</span>
-                        </div>
-                    </div>
-
-                    <div class="message recu">
-                        <div class="avatar-message-placeholder"></div>
-                        <div class="bulle-message">
-                            <p>Super, merci ! Je serai là à 7h55 👍</p>
-                            <span class="heure-msg">14:32</span>
-                        </div>
-                    </div>
-
-                    <div class="message envoye">
-                        <div class="bulle-message">
-                            <p>Parfait, à demain !</p>
-                            <span class="heure-msg">14:33</span>
-                        </div>
-                    </div>
+                    <div class="separateur-date"><span>Messagerie</span></div>
                 </div>
                 
                 <div class="zone-saisie">
-                    <button class="btn-piece-jointe">📎</button>
                     <input type="text" placeholder="Écrire un message...">
-                    <button class="bouton-envoyer">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
-                        </svg>
-                    </button>
+                    <button class="bouton-envoyer">➤</button>
                 </div>
             </section>
         </div>
@@ -170,6 +150,7 @@
             <a href="../html/NousContacter.html" class="texte-contact">Contact</a>
         </div>
     </footer>
-    <script src="../javascript/javamessagerie.js"></script>
+    
+    <script src="../javascript/javamessagerie.js?v=2"></script>
 </body>
 </html>
