@@ -253,7 +253,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     margin-top: 5px;
     padding: 6px 12px;
     background: #fff9e6;
@@ -261,12 +261,21 @@ body {
 }
 
 .etoiles {
-    color: #ffd700;
+    font-size: 1.2rem
+}
+
+.etoile-pleine {
+    color: #ffc107;
+}
+
+.etoile-vide {
+    color: #ccc;
 }
 
 .nombre-avis {
-    font-size: 0.9em;
+    font-size: 0.9rem;
     color: #666;
+    font-weight: normal;
 }
 
 
